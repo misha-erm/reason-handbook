@@ -1,0 +1,7 @@
+.nav > li {
+    cursor: pointer;
+}
+
+.nav > li:hover {
+    font-weight: bold;
+}
