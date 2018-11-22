@@ -19,7 +19,11 @@
   "namespace": true,
   "bs-dependencies": [
     "reason-react",
-    "re-formality"
+    "re-formality",
+    "reason-apollo"
+  ],
+  "ppx-flags": [
+    "graphql_ppx/ppx"
   ],
   "refmt": 3
 }

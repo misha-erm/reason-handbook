@@ -1,6 +1,6 @@
 type route =
   | FormRoute
-  | I18nRoute
+  | GraphQlRoute
   | CounterRoute
   | NotFoundRoute;
 
@@ -19,7 +19,7 @@ let matchUrlToComponent = (url: ReasonReact.Router.url) =>
   | []
   | ["counter"] => CounterRoute
   | ["form"] => FormRoute
-  | ["i18n"] => I18nRoute
+  | ["graphQl"] => GraphQlRoute
   | _ => NotFoundRoute
   };
 
@@ -51,15 +51,15 @@ let make = _children => {
         <li onClick={_event => ReasonReact.Router.push("/form")}>
           {ReasonReact.string("Form")}
         </li>
-        <li onClick={_event => ReasonReact.Router.push("/i18n")}>
-          {ReasonReact.string("I18n")}
+        <li onClick={_event => ReasonReact.Router.push("/graphQl")}>
+          {ReasonReact.string("GraphQl")}
         </li>
       </ul>
       <div>
         {
           switch (self.state.route) {
           | FormRoute => <Form />
-          | I18nRoute => <div />
+          | GraphQlRoute => <GraphQl />
           | CounterRoute => <Counter />
           | NotFoundRoute => ReasonReact.string("NOT FOUND")
           }

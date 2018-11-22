@@ -40,7 +40,7 @@ module LoginForm = {
 
 module FormContainer = Formality.Make(LoginForm);
 
-let getFieldStatus = (result: option(Formality__Validation.Result.result(string))) => {
+let getFieldStatus = (result: option(Formality.result(string))) => {
     switch (result) {
     | Some(Error(message)) => ReasonReact.string(message)
     | Some(Ok(Valid)) => ReasonReact.string("valid")

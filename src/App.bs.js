@@ -6,6 +6,7 @@ import * as React from "react";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
 import * as Form$ReactTemplate from "./Form.bs.js";
 import * as Counter$ReactTemplate from "./Counter.bs.js";
+import * as GraphQl$ReactTemplate from "./GraphQl.bs.js";
 
 function reducer(action, _state) {
   return /* Update */Block.__(0, [/* record */[/* route */action[0]]]);
@@ -27,11 +28,11 @@ function matchUrlToComponent(url) {
           } else {
             return /* FormRoute */0;
           }
-      case "i18n" : 
+      case "graphQl" : 
           if (match[1]) {
             return /* NotFoundRoute */3;
           } else {
-            return /* I18nRoute */1;
+            return /* GraphQlRoute */1;
           }
       default:
         return /* NotFoundRoute */3;
@@ -73,7 +74,7 @@ function make(_children) {
                     tmp = ReasonReact.element(undefined, undefined, Form$ReactTemplate.make(/* array */[]));
                     break;
                 case 1 : 
-                    tmp = React.createElement("div", undefined);
+                    tmp = ReasonReact.element(undefined, undefined, GraphQl$ReactTemplate.make(/* array */[]));
                     break;
                 case 2 : 
                     tmp = ReasonReact.element(undefined, undefined, Counter$ReactTemplate.make(/* array */[]));
@@ -95,9 +96,9 @@ function make(_children) {
                                     })
                                 }, "Form"), React.createElement("li", {
                                   onClick: (function (_event) {
-                                      return ReasonReact.Router[/* push */0]("/i18n");
+                                      return ReasonReact.Router[/* push */0]("/graphQl");
                                     })
-                                }, "I18n")), React.createElement("div", undefined, tmp));
+                                }, "GraphQl")), React.createElement("div", undefined, tmp));
             }),
           /* initialState */(function (param) {
               return /* record */[/* route */matchUrlToComponent(ReasonReact.Router[/* dangerouslyGetInitialUrl */3](/* () */0))];
