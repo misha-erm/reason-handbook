@@ -154,7 +154,9 @@ function make$1(_children) {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
               var usersQuery = make(self[/* state */1][/* count */0], /* () */0);
-              return React.createElement("div", undefined, "Enter count", React.createElement("input", {
+              return React.createElement("div", undefined, React.createElement("p", undefined, React.createElement("a", {
+                                  href: "https://github.com/apollographql/reason-apollo"
+                                }, "Using Reason-Apollo")), "Enter count", React.createElement("input", {
                               autoFocus: true,
                               placeholder: "enter count of persons",
                               type: "text",

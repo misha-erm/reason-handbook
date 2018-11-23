@@ -23,13 +23,12 @@ let reducer = (action, _state) =>
 
 let initialState = () => {count: 5};
 
-let onInputChange = ({ReasonReact.send}, event) => {
-    switch (ReactEvent.Form.target(event)##value) {
-    | Some("") => SetCount(0) -> send
-    | Some(value) => int_of_string(value) -> SetCount -> send
-    | None => ()
-    };
-}
+let onInputChange = ({ReasonReact.send}, event) =>
+  switch (ReactEvent.Form.target(event)##value) {
+  | Some("") => SetCount(0)->send
+  | Some(value) => int_of_string(value)->SetCount->send
+  | None => ()
+  };
 
 let component = ReasonReact.reducerComponent("GraphQl");
 
@@ -40,13 +39,18 @@ let make = _children => {
   render: self => {
     let usersQuery = GetAllPersons.make(~count=self.state.count, ());
     <div>
+      <p>
+        <a href="https://github.com/apollographql/reason-apollo">
+          {ReasonReact.string("Using Reason-Apollo")}
+        </a>
+      </p>
       {ReasonReact.string("Enter count")}
       <input
         autoFocus=true
         placeholder="enter count of persons"
         type_="text"
-        value=(self.state.count->string_of_int)
-        onChange=onInputChange(self)
+        value={self.state.count->string_of_int}
+        onChange={onInputChange(self)}
       />
       <GetAllPersonsQuery variables=usersQuery##variables>
         ...{
